@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainMetric.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-domain</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.domain.metrics</a> &gt; <span class="el_source">MainMetric.java</span></div><h1>MainMetric.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.domain.metrics;
+
+import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Main Metric, 一个主度量（MainMetric）是由多个子度量（SubMetric）组成的。
+ *
+ * @author Frank Zhang
+ * @date 2018-08-28 2:00 PM
+ */
+<span class="nc bnc" id="L14" title="All 22 branches missed.">@Data</span>
+public abstract class MainMetric extends Metric{
+
+
+<span class="nc" id="L18">    protected MainMetricType metricMainType;</span>
+
+<span class="pc" id="L20">    protected List&lt;SubMetric&gt; subMetrics = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L22">    public MainMetric(){</span>
+<span class="fc" id="L23">    }</span>
+
+    public void addSubMetric(SubMetric metric){
+<span class="fc" id="L26">        subMetrics.add(metric);</span>
+<span class="fc" id="L27">    }</span>
+
+    @Override
+    public String getName() {
+<span class="nc" id="L31">        return metricMainType.getMetricName();</span>
+    }
+
+    @Override
+    public String getCode(){
+<span class="nc" id="L36">        return metricMainType.getMetricCode();</span>
+    }
+
+
+    @Override
+    public double calculateScore() {
+<span class="fc" id="L42">        double mainMetricScore = 0;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Metric subMetric : subMetrics) {</span>
+<span class="fc" id="L44">            mainMetricScore = mainMetricScore + subMetric.calculateScore() * subMetric.getWeight();</span>
+<span class="fc" id="L45">        }</span>
+<span class="fc" id="L46">        return mainMetricScore;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

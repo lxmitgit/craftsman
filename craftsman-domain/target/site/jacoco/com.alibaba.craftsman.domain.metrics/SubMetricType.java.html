@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubMetricType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-domain</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.domain.metrics</a> &gt; <span class="el_source">SubMetricType.java</span></div><h1>SubMetricType.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.domain.metrics;
+
+/**
+ * SubMetricType
+ *
+ * @author Frank Zhang
+ * @date 2018-08-27 4:54 PM
+ */
+<span class="fc" id="L9">public enum SubMetricType {</span>
+
+<span class="fc" id="L11">    LongMethod(MainMetricType.APP_QUALITY, &quot;LongMethod&quot;,&quot;超长方法&quot;),</span>
+<span class="fc" id="L12">    Cyclomatic(MainMetricType.APP_QUALITY, &quot;Cyclomatic&quot;,&quot;圈复杂度&quot;),</span>
+<span class="fc" id="L13">    Duplication(MainMetricType.APP_QUALITY, &quot;Duplication&quot;,&quot;代码重复度&quot;),</span>
+
+<span class="fc" id="L15">    App(MainMetricType.APP_QUALITY, &quot;App&quot;,&quot;App应用&quot;),</span>
+
+<span class="fc" id="L17">    ATA(MainMetricType.TECH_INFLUENCE, &quot;ATA&quot;, &quot;ATA文章&quot;),</span>
+<span class="fc" id="L18">    Sharing(MainMetricType.TECH_INFLUENCE, &quot;Sharing&quot;, &quot;技术分享&quot;),</span>
+<span class="fc" id="L19">    Patent(MainMetricType.TECH_INFLUENCE, &quot;Patent&quot;, &quot;专利&quot;),</span>
+<span class="fc" id="L20">    Paper(MainMetricType.TECH_INFLUENCE, &quot;Paper&quot;, &quot;论文&quot;),</span>
+
+<span class="fc" id="L22">    CodeReview(MainMetricType.TECH_CONTRIBUTION, &quot;CodeReview&quot;, &quot;Code Review&quot;),</span>
+<span class="fc" id="L23">    Refactoring(MainMetricType.TECH_CONTRIBUTION, &quot;Refactoring&quot;, &quot;重构&quot;),</span>
+<span class="fc" id="L24">    Misc(MainMetricType.TECH_CONTRIBUTION, &quot;Misc&quot;, &quot;其他贡献&quot;),</span>
+
+<span class="fc" id="L26">    Bug(MainMetricType.DEV_QUALITY, &quot;Bug&quot;, &quot;提测Bug&quot;),</span>
+<span class="fc" id="L27">    Fault(MainMetricType.DEV_QUALITY, &quot;Fault&quot;, &quot;故障&quot;),</span>
+    ;
+
+    //度量类型
+    private MainMetricType parentType;
+
+    //度量项Code
+    private String metricSubTypeCode;
+
+    //度量项中文名称
+    private String metricSubTypeName;
+
+<span class="fc" id="L39">    private SubMetricType(MainMetricType parentType, String metricSubTypeCode, String metricSubTypeName){</span>
+<span class="fc" id="L40">        this.parentType = parentType;</span>
+<span class="fc" id="L41">        this.metricSubTypeCode = metricSubTypeCode;</span>
+<span class="fc" id="L42">        this.metricSubTypeName = metricSubTypeName;</span>
+<span class="fc" id="L43">    }</span>
+
+    public MainMetricType getParentType() {
+<span class="nc" id="L46">        return parentType;</span>
+    }
+
+    public String getMetricSubTypeCode() {
+<span class="nc" id="L50">        return metricSubTypeCode;</span>
+    }
+
+    public String getMetricSubTypeName() {
+<span class="nc" id="L54">        return metricSubTypeName;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

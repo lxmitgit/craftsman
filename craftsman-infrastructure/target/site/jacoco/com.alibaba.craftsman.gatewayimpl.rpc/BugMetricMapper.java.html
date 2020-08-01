@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BugMetricMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-infrastructure</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.gatewayimpl.rpc</a> &gt; <span class="el_source">BugMetricMapper.java</span></div><h1>BugMetricMapper.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.gatewayimpl.rpc;
+
+import com.alibaba.craftsman.gatewayimpl.rpc.dataobject.BugMetricDO;
+import org.springframework.stereotype.Component;
+
+/**
+ * 模拟一个RPC的Tunnel，也是日常业务中非常常见的场景。
+ *
+ * 假设Bug数和代码checkin数再另外一个系统中，没有存在本地，需要通过RPC调用才能获取。
+ *
+ */
+@Component
+<span class="nc" id="L13">public class BugMetricMapper {</span>
+
+    /**
+     *  Dummy RPC Call
+     */
+    public BugMetricDO getByUserId(String userId){
+<span class="nc" id="L19">        BugMetricDO bugMetricDO = new BugMetricDO();</span>
+<span class="nc" id="L20">        bugMetricDO.setBugCount(3);</span>
+<span class="nc" id="L21">        bugMetricDO.setCheckInCodeCount(1500);</span>
+<span class="nc" id="L22">        return bugMetricDO;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

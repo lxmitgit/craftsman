@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ATAMetricItem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-domain</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.domain.metrics.techinfluence</a> &gt; <span class="el_source">ATAMetricItem.java</span></div><h1>ATAMetricItem.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.domain.metrics.techinfluence;
+
+import com.alibaba.cola.logger.Logger;
+import com.alibaba.cola.logger.LoggerFactory;
+import com.alibaba.craftsman.domain.metrics.MetricItem;
+import com.alibaba.fastjson.JSON;
+import lombok.Data;
+
+/**
+ * ATAMetricItem
+ * 线上分享，ATA文章指标项
+ * @author Frank Zhang
+ * @date 2018-07-04 3:20 PM
+ */
+<span class="pc bpc" id="L15" title="25 of 38 branches missed.">@Data</span>
+public class ATAMetricItem extends MetricItem {
+
+<span class="fc" id="L18">    private static Logger logger = LoggerFactory.getLogger(ATAMetricItem.class);</span>
+
+<span class="pc" id="L20">    private String authorId;//作者</span>
+<span class="fc" id="L21">    private String title;//文章标题</span>
+<span class="fc" id="L22">    private String url;//文章链接</span>
+<span class="fc" id="L23">    private long thumbsUpCount;//点赞数</span>
+<span class="fc" id="L24">    private long hitCount;//点击数</span>
+<span class="fc" id="L25">    private long commentCount;//评论数</span>
+<span class="fc" id="L26">    private long favoriteCount;//收藏数</span>
+
+<span class="fc" id="L28">    private static int HIT_STEP_SIZE = 100;</span>
+<span class="fc" id="L29">    private static int THUMB_UPS_STEP_SIZE = 20;</span>
+<span class="fc" id="L30">    private static int FAVORITE_STEP_SIZE = 15;</span>
+<span class="fc" id="L31">    private static int COMMENT_STEP_SIZE = 3;</span>
+<span class="fc" id="L32">    private static double STEP_SCORE = 0.25;</span>
+<span class="fc" id="L33">    private static double BASIC_SCORE = 0.5;</span>
+
+
+<span class="fc" id="L36">    public ATAMetricItem(){</span>
+
+<span class="fc" id="L38">    }</span>
+
+<span class="fc" id="L40">    public ATAMetricItem(String title, long thumbsUpCount, long hitCount, long favoriteCount, long commentCount) {</span>
+<span class="fc" id="L41">        this.title = title;</span>
+<span class="fc" id="L42">        this.thumbsUpCount = thumbsUpCount;</span>
+<span class="fc" id="L43">        this.hitCount = hitCount;</span>
+<span class="fc" id="L44">        this.favoriteCount = favoriteCount;</span>
+<span class="fc" id="L45">        this.commentCount = commentCount;</span>
+<span class="fc" id="L46">    }</span>
+
+    public static ATAMetricItem valueOf(String json){
+<span class="fc" id="L49">        return JSON.parseObject(json, ATAMetricItem.class);</span>
+    }
+
+    @Override
+    public double calculateScore() {
+<span class="fc" id="L54">        logger.debug(&quot;calculate score for : &quot; + this);</span>
+<span class="fc" id="L55">        double score = BASIC_SCORE;</span>
+<span class="fc" id="L56">        score = addScoreByHitCount(score);</span>
+<span class="fc" id="L57">        score = addScoreByThumbsupCount(score);</span>
+<span class="fc" id="L58">        score = addScoreByFavoriteCount(score);</span>
+<span class="fc" id="L59">        score = addScoreByCommentCount(score);</span>
+<span class="fc" id="L60">        logger.debug(&quot;calculated score is : &quot; + score);</span>
+<span class="fc" id="L61">        return score;</span>
+    }
+
+    private double addScoreByHitCount(double score) {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for(int counter = HIT_STEP_SIZE; counter &lt;= hitCount; counter = counter + HIT_STEP_SIZE){</span>
+<span class="fc" id="L66">            score = score + STEP_SCORE;</span>
+        }
+<span class="fc" id="L68">        return score;</span>
+    }
+
+    private double addScoreByThumbsupCount(double score){
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for(int counter = THUMB_UPS_STEP_SIZE; counter &lt;= thumbsUpCount; counter = counter + THUMB_UPS_STEP_SIZE){</span>
+<span class="fc" id="L73">            score = score + STEP_SCORE;</span>
+        }
+<span class="fc" id="L75">        return score;</span>
+    }
+
+    private double addScoreByFavoriteCount(double score){
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        for(int counter = FAVORITE_STEP_SIZE; counter &lt;= favoriteCount; counter = counter + FAVORITE_STEP_SIZE){</span>
+<span class="fc" id="L80">            score = score + STEP_SCORE;</span>
+        }
+<span class="fc" id="L82">        return score;</span>
+    }
+
+    private double addScoreByCommentCount(double score){
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        for(int counter = COMMENT_STEP_SIZE; counter &lt;= commentCount; counter = counter + COMMENT_STEP_SIZE){</span>
+<span class="fc" id="L87">            score = score + STEP_SCORE;</span>
+        }
+<span class="fc" id="L89">        return score;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserProfileListQryExe.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-app</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.command.query</a> &gt; <span class="el_source">UserProfileListQryExe.java</span></div><h1>UserProfileListQryExe.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.command.query;
+
+import com.alibaba.cola.dto.MultiResponse;
+import com.alibaba.craftsman.dto.UserProfileListQry;
+import com.alibaba.craftsman.dto.clientobject.UserProfileCO;
+import com.alibaba.craftsman.gatewayimpl.database.UserProfileMapper;
+import com.alibaba.craftsman.gatewayimpl.database.dataobject.UserProfileDO;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+<span class="nc" id="L16">public class UserProfileListQryExe{</span>
+
+    @Resource
+    private UserProfileMapper userProfileMapper;
+
+    public MultiResponse&lt;UserProfileCO&gt; execute(UserProfileListQry qry) {
+<span class="nc" id="L22">        List&lt;UserProfileDO&gt; userProfileDOList = userProfileMapper.listByDep(qry.getDep());</span>
+<span class="nc" id="L23">        List&lt;UserProfileCO&gt; userProfileCOList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L24">        userProfileDOList.forEach(userDO -&gt; {</span>
+<span class="nc" id="L25">            UserProfileCO userProfileCO = new UserProfileCO();</span>
+<span class="nc" id="L26">            BeanUtils.copyProperties(userDO, userProfileCO);</span>
+<span class="nc" id="L27">            userProfileCOList.add(userProfileCO);</span>
+<span class="nc" id="L28">        });</span>
+<span class="nc" id="L29">        return MultiResponse.ofWithoutTotal(userProfileCOList);</span>
+    }
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

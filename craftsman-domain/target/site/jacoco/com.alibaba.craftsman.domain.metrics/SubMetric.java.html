@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubMetric.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-domain</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.domain.metrics</a> &gt; <span class="el_source">SubMetric.java</span></div><h1>SubMetric.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.domain.metrics;
+
+import com.alibaba.craftsman.domain.user.UserProfile;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Sub Metric,  一个主度量（MainMetric）可以有一个或者多个子度量（SubMetric）组成的。
+ *
+ * @author Frank Zhang
+ * @date 2018-08-27 6:44 PM
+ */
+<span class="nc bnc" id="L17" title="All 30 branches missed.">@Data</span>
+public abstract class SubMetric extends Metric {
+
+<span class="nc" id="L20">    protected SubMetricType subMetricType;</span>
+
+<span class="nc" id="L22">    protected MainMetric parent;</span>
+
+<span class="fc" id="L24">    @Getter</span>
+<span class="nc" id="L25">    private List&lt;MetricItem&gt; metricItemList = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L27">    public SubMetric(){</span>
+
+<span class="fc" id="L29">    }</span>
+
+    public void setParent(MainMetric parent){
+<span class="nc" id="L32">        this.parent = parent;</span>
+<span class="nc" id="L33">        this.metricOwner = parent.metricOwner;</span>
+<span class="nc" id="L34">        parent.addSubMetric(this);</span>
+<span class="nc" id="L35">    }</span>
+
+    /**
+     * 添加度量项
+     * @param metricItem
+     */
+    public void addMetricItem(MetricItem metricItem){
+<span class="fc" id="L42">        metricItemList.add(metricItem);</span>
+<span class="fc" id="L43">    }</span>
+
+
+    @Override
+    public String getName() {
+<span class="nc" id="L48">        return subMetricType.getMetricSubTypeName();</span>
+    }
+
+    @Override
+    public String getCode(){
+<span class="nc" id="L53">        return subMetricType.getMetricSubTypeCode();</span>
+    }
+
+    @Override
+    public double calculateScore() {
+<span class="fc" id="L58">        double subMetricScore = 0;</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        for (MetricItem metricItem : metricItemList) {</span>
+<span class="fc" id="L60">            subMetricScore = subMetricScore + metricItem.calculateScore();</span>
+<span class="fc" id="L61">        }</span>
+<span class="fc" id="L62">        return subMetricScore;</span>
+    }
+
+    @Override
+    public UserProfile getMetricOwner(){
+<span class="fc" id="L67">        return parent.getMetricOwner();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainMetricType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-domain</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.domain.metrics</a> &gt; <span class="el_source">MainMetricType.java</span></div><h1>MainMetricType.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.domain.metrics;
+
+<span class="fc" id="L3">public enum MainMetricType {</span>
+<span class="fc" id="L4">    APP_QUALITY(&quot;app-quality&quot;,&quot;应用质量&quot;),</span>
+<span class="fc" id="L5">    TECH_INFLUENCE(&quot;tech-influence&quot;,&quot;技术影响力&quot;),</span>
+<span class="fc" id="L6">    TECH_CONTRIBUTION(&quot;tech-contribution&quot;,&quot;技术贡献&quot;),</span>
+<span class="fc" id="L7">    DEV_QUALITY(&quot;dev-quality&quot;,&quot;开发质量&quot;);</span>
+
+    private String metricCode;
+    private String metricName;
+
+<span class="fc" id="L12">    private MainMetricType(String metricCode, String metricName){</span>
+<span class="fc" id="L13">        this.metricCode = metricCode;</span>
+<span class="fc" id="L14">        this.metricName = metricName;</span>
+<span class="fc" id="L15">    }</span>
+
+    public String getMetricCode() {
+<span class="nc" id="L18">        return metricCode;</span>
+    }
+
+    public String getMetricName() {
+<span class="nc" id="L22">        return metricName;</span>
+    }
+
+    public static MainMetricType of(String metricCode){
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if(metricCode == null){</span>
+<span class="nc" id="L27">            return null;</span>
+        }
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        for (MainMetricType metricMainType : MainMetricType.values()) {</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            if(metricCode.equals(metricMainType.metricCode)){</span>
+<span class="nc" id="L31">                return metricMainType;</span>
+            }
+        }
+<span class="nc" id="L34">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

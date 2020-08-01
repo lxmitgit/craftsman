@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserProfileServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-app</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.service</a> &gt; <span class="el_source">UserProfileServiceImpl.java</span></div><h1>UserProfileServiceImpl.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.service;
+
+import com.alibaba.cola.dto.MultiResponse;
+import com.alibaba.cola.dto.Response;
+import com.alibaba.cola.dto.SingleResponse;
+import com.alibaba.craftsman.api.UserProfileServiceI;
+import com.alibaba.craftsman.command.RefreshScoreCmdExe;
+import com.alibaba.craftsman.command.UserProfileAddCmdExe;
+import com.alibaba.craftsman.command.UserProfileUpdateCmdExe;
+import com.alibaba.craftsman.command.query.UserProfileGetQryExe;
+import com.alibaba.craftsman.command.query.UserProfileListQryExe;
+import com.alibaba.craftsman.dto.*;
+import com.alibaba.craftsman.dto.clientobject.UserProfileCO;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+
+/**
+ * UserProfileServiceImpl
+ *
+ * @author Frank Zhang
+ * @date 2019-02-28 6:22 PM
+ */
+@Service
+<span class="nc" id="L25">public class UserProfileServiceImpl implements UserProfileServiceI{</span>
+    @Resource
+    private UserProfileAddCmdExe userProfileAddCmdExe;
+    @Resource
+    private UserProfileUpdateCmdExe userProfileUpdateCmdExe;
+    @Resource
+    private RefreshScoreCmdExe refreshScoreCmdExe;
+    @Resource
+    private UserProfileGetQryExe userProfileGetQryExe;
+    @Resource
+    private UserProfileListQryExe userProfileListQryExe;
+
+
+    @Override
+    public Response addUserProfile(UserProfileAddCmd userProfileAddCmd) {
+<span class="nc" id="L40">        return  userProfileAddCmdExe.execute(userProfileAddCmd);</span>
+    }
+
+    @Override
+    public Response updateUserProfile(UserProfileUpdateCmd cmd) {
+<span class="nc" id="L45">        return userProfileUpdateCmdExe.execute(cmd);</span>
+    }
+
+    @Override
+    public Response refreshScore(RefreshScoreCmd cmd) {
+<span class="nc" id="L50">        return refreshScoreCmdExe.execute(cmd);</span>
+    }
+
+    @Override
+    public SingleResponse&lt;UserProfileCO&gt; getUserProfileBy(UserProfileGetQry qry) {
+<span class="nc" id="L55">        return userProfileGetQryExe.execute(qry);</span>
+    }
+
+    @Override
+    public MultiResponse&lt;UserProfileCO&gt; listUserProfileBy(UserProfileListQry qry) {
+<span class="nc" id="L60">        return userProfileListQryExe.execute(qry);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

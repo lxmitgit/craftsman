@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserProfileDO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-infrastructure</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.gatewayimpl.database.dataobject</a> &gt; <span class="el_source">UserProfileDO.java</span></div><h1>UserProfileDO.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.gatewayimpl.database.dataobject;
+
+
+/**
+ * UserProfileDO
+ *
+ * @author Frank Zhang
+ * @date 2019-02-27 5:00 PM
+ */
+
+<span class="nc" id="L11">public class UserProfileDO extends BaseDO{</span>
+
+    /**
+     * 域账号
+     */
+    private String userId;
+
+    /**
+     * 姓名
+     */
+    private String userName;
+
+    /**
+     * 部门
+     */
+    private String dep;
+
+    /**
+     * 角色
+     */
+    private String role;
+
+    /**
+     * 是否主管
+     */
+    private String isManager;
+
+    /**
+     * 综合得分
+     */
+    private double totalScore;
+
+    /**
+     * 代码质量分
+     */
+    private double appQualityScore;
+
+    /**
+     * 技术影响力分
+     */
+    private double techInfluenceScore;
+
+    /**
+     * 技术贡献分
+     */
+    private double techContributionScore;
+
+    /**
+     * 开发质量分
+     */
+    private double devQualityScore;
+
+    /**
+     * checkin代码量
+     */
+    private double checkinCodeQuantity;
+
+    public String getUserId() {
+<span class="nc" id="L69">        return userId;</span>
+    }
+
+    public void setUserId(String userId) {
+<span class="nc" id="L73">        this.userId = userId;</span>
+<span class="nc" id="L74">    }</span>
+
+    public String getUserName() {
+<span class="nc" id="L77">        return userName;</span>
+    }
+
+    public void setUserName(String userName) {
+<span class="nc" id="L81">        this.userName = userName;</span>
+<span class="nc" id="L82">    }</span>
+
+    public String getDep() {
+<span class="nc" id="L85">        return dep;</span>
+    }
+
+    public void setDep(String dep) {
+<span class="nc" id="L89">        this.dep = dep;</span>
+<span class="nc" id="L90">    }</span>
+
+    public String getRole() {
+<span class="nc" id="L93">        return role;</span>
+    }
+
+    public void setRole(String role) {
+<span class="nc" id="L97">        this.role = role;</span>
+<span class="nc" id="L98">    }</span>
+
+    public String getIsManager() {
+<span class="nc" id="L101">        return isManager;</span>
+    }
+
+    public void setIsManager(String isManager) {
+<span class="nc" id="L105">        this.isManager = isManager;</span>
+<span class="nc" id="L106">    }</span>
+
+    public double getTotalScore() {
+<span class="nc" id="L109">        return totalScore;</span>
+    }
+
+    public void setTotalScore(double totalScore) {
+<span class="nc" id="L113">        this.totalScore = totalScore;</span>
+<span class="nc" id="L114">    }</span>
+
+    public double getAppQualityScore() {
+<span class="nc" id="L117">        return appQualityScore;</span>
+    }
+
+    public void setAppQualityScore(double appQualityScore) {
+<span class="nc" id="L121">        this.appQualityScore = appQualityScore;</span>
+<span class="nc" id="L122">    }</span>
+
+    public double getTechInfluenceScore() {
+<span class="nc" id="L125">        return techInfluenceScore;</span>
+    }
+
+    public void setTechInfluenceScore(double techInfluenceScore) {
+<span class="nc" id="L129">        this.techInfluenceScore = techInfluenceScore;</span>
+<span class="nc" id="L130">    }</span>
+
+    public double getTechContributionScore() {
+<span class="nc" id="L133">        return techContributionScore;</span>
+    }
+
+    public void setTechContributionScore(double techContributionScore) {
+<span class="nc" id="L137">        this.techContributionScore = techContributionScore;</span>
+<span class="nc" id="L138">    }</span>
+
+    public double getDevQualityScore() {
+<span class="nc" id="L141">        return devQualityScore;</span>
+    }
+
+    public void setDevQualityScore(double devQualityScore) {
+<span class="nc" id="L145">        this.devQualityScore = devQualityScore;</span>
+<span class="nc" id="L146">    }</span>
+
+    public double getCheckinCodeQuantity() {
+<span class="nc" id="L149">        return checkinCodeQuantity;</span>
+    }
+
+    public void setCheckinCodeQuantity(double checkinCodeQuantity) {
+<span class="nc" id="L153">        this.checkinCodeQuantity = checkinCodeQuantity;</span>
+<span class="nc" id="L154">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RefactoringLevel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-domain</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.domain.metrics.techcontribution</a> &gt; <span class="el_source">RefactoringLevel.java</span></div><h1>RefactoringLevel.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.domain.metrics.techcontribution;
+
+import lombok.Getter;
+
+/**
+ * RefactoringLevel
+ *
+ * @author Frank Zhang
+ * @date 2018-09-20 3:37 PM
+ */
+<span class="nc" id="L11">public enum RefactoringLevel {</span>
+
+<span class="nc" id="L13">    METHOD(2, &quot;方法级别的重构&quot;),</span>
+<span class="nc" id="L14">    MODULE( 4, &quot;模块级别的重构（多个方法和类的重构）&quot;),</span>
+<span class="nc" id="L15">    PROJECT(10, &quot;项目级别的重构（超过3个人日的重构项目）&quot;);</span>
+
+
+<span class="nc" id="L18">    @Getter</span>
+    private double score;
+
+    private String desc;
+
+<span class="nc" id="L23">    RefactoringLevel(double score, String desc) {</span>
+<span class="nc" id="L24">        this.score = score;</span>
+<span class="nc" id="L25">        this.desc = desc;</span>
+<span class="nc" id="L26">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

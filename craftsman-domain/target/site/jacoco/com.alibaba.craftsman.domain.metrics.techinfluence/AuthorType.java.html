@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthorType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-domain</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.domain.metrics.techinfluence</a> &gt; <span class="el_source">AuthorType.java</span></div><h1>AuthorType.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.domain.metrics.techinfluence;
+
+import lombok.Getter;
+
+/**
+ * 论文专利作者类型枚举
+ *
+ * @author Frank Zhang
+ * @date 2018-09-20 3:28 PM
+ */
+<span class="fc" id="L11">public enum AuthorType {</span>
+
+<span class="fc" id="L13">    FIRST_AUTHOR(AuthorType.FIRST_AUTHOR_PATENT_SCORE, &quot;专利或者论文的第一作者&quot;),</span>
+<span class="fc" id="L14">    OTHER_AUTHOR(AuthorType.OTHER_AUTHOR_PATENT_SCORE, &quot;专利或论文的其他作者&quot;);</span>
+
+    private static final double FIRST_AUTHOR_PATENT_SCORE = 20;
+    private static final double OTHER_AUTHOR_PATENT_SCORE = 5;
+
+<span class="fc" id="L19">    @Getter</span>
+    private double score;
+    private String desc;
+
+<span class="fc" id="L23">    private AuthorType(double score, String desc) {</span>
+<span class="fc" id="L24">        this.score = score;</span>
+<span class="fc" id="L25">        this.desc = desc;</span>
+<span class="fc" id="L26">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

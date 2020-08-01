@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppMetricItem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-domain</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.domain.metrics.appquality</a> &gt; <span class="el_source">AppMetricItem.java</span></div><h1>AppMetricItem.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.domain.metrics.appquality;
+
+import com.alibaba.cola.logger.Logger;
+import com.alibaba.cola.logger.LoggerFactory;
+import com.alibaba.craftsman.domain.metrics.MetricItem;
+import lombok.Data;
+
+<span class="pc bnc" id="L8" title="All 22 branches missed.">@Data</span>
+public class AppMetricItem extends MetricItem {
+<span class="fc" id="L10">    private final static Logger logger = LoggerFactory.getLogger(AppMetricItem.class);</span>
+
+<span class="pc" id="L12">    private String appName;//应用名称</span>
+<span class="pc" id="L13">    private int cyclomaticComplexityCount;//圈复杂度超标的数目</span>
+<span class="pc" id="L14">    private int duplicatedMethodCount;//重复代码的数目</span>
+<span class="pc" id="L15">    private int longMethodCount;//长方法的数目</span>
+<span class="pc" id="L16">    private int blockedCodeConductCount;//不符合编码标准的数目</span>
+
+    private static final int FULL_SCORE=100;
+    private static final int STEP_SIZE=10;
+    private static final int STEP_MINUS_SCORE = 1;
+
+    @Override
+    public double calculateScore() {
+<span class="fc" id="L24">        double score = FULL_SCORE;</span>
+<span class="fc" id="L25">        score = duductScore(score, cyclomaticComplexityCount);</span>
+<span class="fc" id="L26">        score = duductScore(score, duplicatedMethodCount);</span>
+<span class="fc" id="L27">        score = duductScore(score, longMethodCount);</span>
+<span class="fc" id="L28">        score = duductScore(score, blockedCodeConductCount);</span>
+<span class="fc" id="L29">        logger.debug(&quot;Calculated App score is &quot;+score );</span>
+<span class="fc" id="L30">        return score;</span>
+    }
+
+    private double duductScore(double score, int count) {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (int counter = STEP_SIZE; counter &lt;= count; counter = counter + STEP_SIZE) {</span>
+<span class="fc" id="L35">            score = score - STEP_MINUS_SCORE;</span>
+        }
+<span class="fc" id="L37">        return score;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

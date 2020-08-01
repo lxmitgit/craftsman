@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppMetricMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-infrastructure</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.gatewayimpl.rpc</a> &gt; <span class="el_source">AppMetricMapper.java</span></div><h1>AppMetricMapper.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.gatewayimpl.rpc;
+
+import com.alibaba.craftsman.gatewayimpl.rpc.dataobject.AppMetricDO;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+<span class="nc" id="L10">public class AppMetricMapper {</span>
+
+    /**
+     *  Dummy RPC Call
+     */
+    public List&lt;AppMetricDO&gt; listByUserId(String userId){
+<span class="nc" id="L16">        List&lt;AppMetricDO&gt; appMetricDOList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L17">        AppMetricDO appMetricDO1 = new AppMetricDO();</span>
+<span class="nc" id="L18">        appMetricDO1.setAppName(&quot;app1&quot;);</span>
+<span class="nc" id="L19">        appMetricDO1.setCyclomaticComplexityCount(200);</span>
+<span class="nc" id="L20">        appMetricDO1.setDuplicatedMethodCount(80);</span>
+<span class="nc" id="L21">        appMetricDO1.setLongMethodCount(70);</span>
+<span class="nc" id="L22">        appMetricDO1.setBlockedCodeConductCount(20);</span>
+<span class="nc" id="L23">        appMetricDOList.add(appMetricDO1);</span>
+
+<span class="nc" id="L25">        AppMetricDO appMetricDO2 = new AppMetricDO();</span>
+<span class="nc" id="L26">        appMetricDO2.setAppName(&quot;app2&quot;);</span>
+<span class="nc" id="L27">        appMetricDO2.setCyclomaticComplexityCount(20);</span>
+<span class="nc" id="L28">        appMetricDO2.setDuplicatedMethodCount(30);</span>
+<span class="nc" id="L29">        appMetricDO2.setLongMethodCount(7);</span>
+<span class="nc" id="L30">        appMetricDO2.setBlockedCodeConductCount(5);</span>
+<span class="nc" id="L31">        appMetricDOList.add(appMetricDO2);</span>
+<span class="nc" id="L32">        return appMetricDOList;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

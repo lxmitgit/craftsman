@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContributionMetric.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-domain</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.domain.metrics.techcontribution</a> &gt; <span class="el_source">ContributionMetric.java</span></div><h1>ContributionMetric.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.domain.metrics.techcontribution;
+
+import com.alibaba.cola.logger.Logger;
+import com.alibaba.cola.logger.LoggerFactory;
+import com.alibaba.craftsman.domain.metrics.MainMetric;
+import com.alibaba.craftsman.domain.metrics.MainMetricType;
+import com.alibaba.craftsman.domain.user.UserProfile;
+import lombok.Data;
+
+/**
+ * ContributionMetric
+ *
+ * @author Frank Zhang
+ * @date 2018-08-27 7:06 PM
+ */
+<span class="nc bnc" id="L16" title="All 30 branches missed.">@Data</span>
+public class ContributionMetric extends MainMetric {
+
+<span class="nc" id="L19">    private static Logger logger = LoggerFactory.getLogger(ContributionMetric.class);</span>
+
+<span class="nc" id="L21">    private CodeReviewMetric codeReviewMetric;</span>
+<span class="nc" id="L22">    private RefactoringMetric refactoringMetric;</span>
+<span class="nc" id="L23">    private MiscMetric miscMetric;</span>
+
+<span class="nc" id="L25">    public ContributionMetric(UserProfile metricOwner){</span>
+<span class="nc" id="L26">        this.metricOwner = metricOwner;</span>
+<span class="nc" id="L27">        metricOwner.setContributionMetric(this);</span>
+<span class="nc" id="L28">        this.metricMainType = MainMetricType.TECH_CONTRIBUTION;</span>
+<span class="nc" id="L29">    }</span>
+
+    @Override
+    public double getWeight() {
+<span class="nc" id="L33">        return metricOwner.getWeight().getTechContributionWeight();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

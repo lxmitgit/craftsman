@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserProfileConvertor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">craftsman-infrastructure</a> &gt; <a href="index.source.html" class="el_package">com.alibaba.craftsman.convertor</a> &gt; <span class="el_source">UserProfileConvertor.java</span></div><h1>UserProfileConvertor.java</h1><pre class="source lang-java linenums">package com.alibaba.craftsman.convertor;
+
+import com.alibaba.craftsman.domain.user.Role;
+import com.alibaba.craftsman.domain.user.UserProfile;
+import com.alibaba.craftsman.dto.clientobject.UserProfileCO;
+import com.alibaba.craftsman.gatewayimpl.database.dataobject.UserProfileDO;
+import org.springframework.beans.BeanUtils;
+
+<span class="nc" id="L9">public class UserProfileConvertor{</span>
+
+    public static UserProfile toEntity(UserProfileCO userProfileCO){
+<span class="nc" id="L12">        UserProfile userProfile = new UserProfile();</span>
+<span class="nc" id="L13">        BeanUtils.copyProperties(userProfileCO, userProfile);</span>
+<span class="nc" id="L14">        userProfile.setRole(Role.valueOf(userProfileCO.getRole()));</span>
+<span class="nc" id="L15">        return userProfile;</span>
+    }
+
+    public static UserProfileDO toDataObject(UserProfile userProfile){
+<span class="nc" id="L19">        UserProfileDO userProfileDO = new UserProfileDO();</span>
+<span class="nc" id="L20">        BeanUtils.copyProperties(userProfile, userProfileDO);</span>
+<span class="nc" id="L21">        userProfileDO.setRole(userProfile.getRole().name());</span>
+<span class="nc" id="L22">        return userProfileDO;</span>
+    }
+
+    public static UserProfileDO toDataObjectForCreate(UserProfile userProfile){
+<span class="nc" id="L26">        UserProfileDO userProfileDO = toDataObject(userProfile);</span>
+<span class="nc" id="L27">        return userProfileDO;</span>
+    }
+
+    public static UserProfileDO  toDataObjectForUpdate(UserProfile userProfile){
+<span class="nc" id="L31">        UserProfileDO userProfileDO = toDataObject(userProfile);</span>
+<span class="nc" id="L32">        return userProfileDO;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

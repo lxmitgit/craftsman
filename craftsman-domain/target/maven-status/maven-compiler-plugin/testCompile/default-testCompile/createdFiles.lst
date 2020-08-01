@@ -1,0 +1,6 @@
+com\alibaba\craftsman\domain\AppMetricTest.class
+com\alibaba\craftsman\domain\BugMetricTest.class
+com\alibaba\craftsman\domain\ATAMetricTest.class
+com\alibaba\craftsman\domain\SharingMetricTest.class
+com\alibaba\craftsman\domain\InfluenceMetricTest.class
+com\alibaba\craftsman\domain\PatentMetricTest.class

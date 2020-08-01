@@ -1,0 +1,16 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+craftsman-infrastructure,com.alibaba.craftsman.gatewayimpl.rpc.dataobject,BugMetricDO,17,0,0,0,7,0,5,0,5,0
+craftsman-infrastructure,com.alibaba.craftsman.gatewayimpl.rpc.dataobject,AppMetricDO,38,0,0,0,16,0,11,0,11,0
+craftsman-infrastructure,com.alibaba.craftsman.common.exception,ErrorCode,33,0,0,0,8,0,4,0,4,0
+craftsman-infrastructure,com.alibaba.craftsman.gatewayimpl,MetricGatewayImpl,268,0,9,0,67,0,17,0,10,0
+craftsman-infrastructure,com.alibaba.craftsman.gatewayimpl,UserProfileGatewayImpl,58,0,2,0,16,0,6,0,5,0
+craftsman-infrastructure,com.alibaba.craftsman.convertor,MetricConvertor,29,0,0,0,7,0,2,0,2,0
+craftsman-infrastructure,com.alibaba.craftsman.convertor,UserProfileConvertor,41,0,0,0,13,0,5,0,5,0
+craftsman-infrastructure,com.alibaba.craftsman.gatewayimpl.database.dataobject,BaseDO,0,17,0,0,0,7,0,5,0,5
+craftsman-infrastructure,com.alibaba.craftsman.gatewayimpl.database.dataobject,MetricDO,3,35,0,0,1,15,1,10,1,10
+craftsman-infrastructure,com.alibaba.craftsman.gatewayimpl.database.dataobject,UserProfileDO,80,0,0,0,34,0,23,0,23,0
+craftsman-infrastructure,com.alibaba.craftsman.config,ColaConfig,9,0,0,0,3,0,2,0,2,0
+craftsman-infrastructure,com.alibaba.craftsman.common.event,DomainEventPublisher,9,0,0,0,3,0,2,0,2,0
+craftsman-infrastructure,com.alibaba.craftsman.common,BizCode,3,0,0,0,1,0,1,0,1,0
+craftsman-infrastructure,com.alibaba.craftsman.gatewayimpl.rpc,BugMetricMapper,15,0,0,0,5,0,2,0,2,0
+craftsman-infrastructure,com.alibaba.craftsman.gatewayimpl.rpc,AppMetricMapper,55,0,0,0,17,0,2,0,2,0
